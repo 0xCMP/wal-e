@@ -75,7 +75,7 @@ Optional:
 * Pass ``--aws-instance-profile`` to gather credentials from the
   Instance Profile.  See `Using AWS IAM Instance Profiles`.
 
-Azure Blob Store
+Azure Blob Store (WABS)
 ''''''''''''''''
 
 * WALE_WABS_PREFIX (e.g. ``wabs://container/path/optionallymorepath``)
