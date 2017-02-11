@@ -43,12 +43,12 @@ WAL-E has these key commands:
 * wal-push
 * `delete`_
 
-All of these operators work in a context of several environment
-variables that WAL-E reads.  The variables set depend on the storage
-provider being used, and are detailed below.
+Each of these commands work using enviroment variables that depend on
+what kind of storage provider is being used. The enviroment variables
+for each provider are detailed below.
 
-WAL-E's organizing concept is the `PREFIX`.  Prefixes must be set
-uniquely for each *writing* database, and prefix all objects stored
+WAL-E's organizing concept is the `PREFIX`. Each *writing* database 
+must have a unique prefix, and prefix all objects stored
 for a given database.  For example: ``s3://bucket/databasename``.
 
 Of these, the "push" operators send backup data to storage and "fetch"
@@ -137,6 +137,12 @@ performed if the storage configuration demands their use.
 Examples
 --------
 
+> While in these examples the enviroment variables are passed 
+> directly, it is generally recommended that one use some sort of 
+> environment variable management with WAL-E: working with it this 
+> way is less verbose, less prone to error, and less likely to 
+> expose secret information in logs.
+
 Pushing a base backup to S3::
 
   $ AWS_SECRET_ACCESS_KEY=... wal-e                     \
@@ -166,12 +172,10 @@ Push a base backup to Google Cloud Storage::
     GOOGLE_APPLICATION_CREDENTIALS=...                          \
     wal-e backup-push /var/lib/my/database
 
-It is generally recommended that one use some sort of environment
-variable management with WAL-E: working with it this way is less verbose,
-less prone to error, and less likely to expose secret information in
-logs.
-
 .. _archive_command: http://www.postgresql.org/docs/8.3/static/runtime-config-wal.html#GUC-ARCHIVE-COMMAND>
+
+Managing enviroment varibles using `envdir`
+''''''''''''''''''''''''''''''''''''''''''' 
 
 envdir_, part of the daemontools_ package is one recommended approach
 to setting environment variables.  One can prepare an
