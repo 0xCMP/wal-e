@@ -137,11 +137,11 @@ performed if the storage configuration demands their use.
 Examples
 --------
 
-> While in these examples the enviroment variables are passed 
-> directly, it is generally recommended that one use some sort of 
-> environment variable management with WAL-E: working with it this 
-> way is less verbose, less prone to error, and less likely to 
-> expose secret information in logs.
+    While in these examples the enviroment variables are passed 
+    directly, it is generally recommended that one use some sort of 
+    environment variable management with WAL-E: working with it this 
+    way is less verbose, less prone to error, and less likely to 
+    expose secret information in logs.
 
 Pushing a base backup to S3::
 
